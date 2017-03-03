@@ -5,6 +5,12 @@ function Pizza(size, toppings) {
   this.cost = 0;
 }
 
+Pizza.prototype.calculateCost = function() {
+  var baseCost = 8;
+
+  this.cost = baseCost;
+}
+
 var pSize = 10;
 var pToppings = ["extra cheese","pepperoni"];
 
