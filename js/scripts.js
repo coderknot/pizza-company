@@ -37,6 +37,7 @@ Pizza.prototype.getToppingsCost = function() {
 //Order
 function Order(pizza) {
   this.pizza = pizza;
+  this.cost = 0;
 }
 
 var pSize = 10;
