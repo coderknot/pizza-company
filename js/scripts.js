@@ -5,7 +5,7 @@ function Pizza(size, toppings) {
 }
 
 var pSize = 10;
-var pToppings = "extra cheese";
+var pToppings = ["extra cheese","pepperoni"];
 
 var newPizza = new Pizza(pSize, pToppings);
 
