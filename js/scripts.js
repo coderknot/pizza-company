@@ -129,6 +129,14 @@ $(document).ready(function() {
     addFields();
   });
 
+  $("#delivery").click(function() {
+    $("#address").show();
+  });
+
+  $("#pick-up").click(function() {
+    $("#address").hide();
+  });
+  
   $("form#order-form").submit(function(event) {
     event.preventDefault();
 
