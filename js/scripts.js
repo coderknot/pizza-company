@@ -7,7 +7,6 @@ function Pizza(size, toppings) {
 
 Pizza.prototype.calculateCost = function() {
   var baseCost = 8;
-
   this.cost = baseCost + this.getSizeCost() + this.getToppingsCost();
 }
 
