@@ -52,6 +52,12 @@ Order.prototype.calculateCost = function() {
   }
 }
 
+Order.prototype.setAddress = function(address) {
+  if(this.isDelivery) {
+    this.address = address;
+  }
+}
+
 var pSize = 10;
 var pToppings = ["extra cheese","pepperoni"];
 var pSize2 = 12;
