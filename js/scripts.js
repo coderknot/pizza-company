@@ -34,23 +34,34 @@ Pizza.prototype.getToppingsCost = function() {
   }
 }
 
+Pizza.prototype.getCost = function() {
+  return this.cost;
+}
 //Order
 function Order(pizzas) {
   this.pizzas = pizzas;
-  this.cost = 0;
+  this.totalCost = 0;
 }
 
 Order.prototype.calculateCost = function() {
-  this.cost = this.pizza.cost;
+  for(var i = 0; i < pizzas.length; i++) {
+    this.totalCost += pizzas[i].getCost();
+  }
 }
 
 var pSize = 10;
 var pToppings = ["extra cheese","pepperoni"];
+var pSize2 = 12;
+var pToppings2 = ["ham"];
 var pizzas = [];
 
 var newPizza = new Pizza(pSize, pToppings);
 newPizza.calculateCost();
 pizzas.push(newPizza);
+
+var newPizza2 = new Pizza(pSize2, pToppings2);
+newPizza2.calculateCost();
+pizzas.push(newPizza2);
 
 var newOrder = new Order(pizzas);
 
