@@ -82,9 +82,71 @@ var address = [street, city, state, zip];
 
 var newOrder = new Order(name, pizzas, deliveryOption);
 
+function addFields() {
+  $("#pizzas").append('<div class="panel panel-info">' +
+    '<div class="panel-heading">' +
+      '<h2 class="panel-title">Size</h2>' +
+    '</div>' +
+    '<div class="panel-body">' +
+      '<div class="radio">' +
+        '<label>' +
+          '<input type="radio" name="size" value="8" checked>' +
+          '8"' +
+        '</label>' +
+      '</div>' +
+      '<div class="radio">' +
+        '<label>' +
+          '<input type="radio" name="size" value="10">' +
+          '10"' +
+        '</label>' +
+      '</div>' +
+      '<div class="radio">' +
+        '<label>' +
+          '<input type="radio" name="size" value="12">' +
+          '12"' +
+        '</label>' +
+      '</div>' +
+      '<div class="radio">' +
+        '<label>' +
+          '<input type="radio" name="size" value="14">' +
+          '14"' +
+        '</label>' +
+      '</div>' +
+      '<div class="radio">' +
+        '<label>' +
+          '<input type="radio" name="size" value="16">' +
+          '16"' +
+        '</label>' +
+      '</div>' +
+    '</div>' +
+  '</div>' +
+  '<div class="panel panel-info">' +
+    '<div class="panel-heading">' +
+      '<h2 class="panel-title">Toppings</h2>' +
+    '</div>' +
+    '<div class="panel-body">' +
+      '<div class="form-group">' +
+        '<input type="checkbox" name="toppings" value="extra-cheese">Extra Cheese</input>' +
+        '<input type="checkbox" name="toppings" value="pepperoni">Pepperoni</input>' +
+        '<input type="checkbox" name="toppings" value="ham">Ham</input>' +
+        '<input type="checkbox" name="toppings" value="sausage">Sausage</input>' +
+        '<input type="checkbox" name="toppings" value="bacon">Bacon</input>' +
+        '<input type="checkbox" name="toppings" value="bell-pepper">Bell Pepper</input>' +
+        '<input type="checkbox" name="toppings" value="onion">Onion</input>' +
+        '<input type="checkbox" name="toppings" value="mushroom">Mushrooms</input>' +
+        '<input type="checkbox" name="toppings" value="green-olive">Green Olive</input>' +
+        '<input type="checkbox" name="toppings" value="black-olive">Black Olive</input>' +
+        '<input type="checkbox" name="toppings" value="pineapple">Pineapple</input>' +
+      '</div>' +
+    '</div>' +
+  '</div>');
+}
 
 // User Interface Logic
 $(document).ready(function() {
 
+  $("#add-pizza").click(function() {
+    addFields();
+  });
 
 });
