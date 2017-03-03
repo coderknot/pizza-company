@@ -38,7 +38,8 @@ Pizza.prototype.getCost = function() {
   return this.cost;
 }
 //Order
-function Order(pizzas) {
+function Order(name, pizzas) {
+  this.name = name;
   this.pizzas = pizzas;
   this.totalCost = 0;
 }
@@ -63,7 +64,9 @@ var newPizza2 = new Pizza(pSize2, pToppings2);
 newPizza2.calculateCost();
 pizzas.push(newPizza2);
 
-var newOrder = new Order(pizzas);
+var name = "Chris";
+
+var newOrder = new Order(name, pizzas);
 
 // User Interface Logic
 $(document).ready(function() {
