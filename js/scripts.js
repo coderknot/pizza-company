@@ -1,4 +1,6 @@
 // Business Logic
+
+// Pizza
 function Pizza(size, toppings) {
   this.size = size;
   this.toppings = toppings;
@@ -32,12 +34,16 @@ Pizza.prototype.getToppingsCost = function() {
   }
 }
 
+//Order
+function Order(pizza) {
+  this.pizza = pizza;
+}
+
 var pSize = 10;
 var pToppings = ["extra cheese","pepperoni"];
 
 var newPizza = new Pizza(pSize, pToppings);
-
-console.log(Pizza);
+var newOrder = new Order(newPizza);
 
 // User Interface Logic
 $(document).ready(function() {
