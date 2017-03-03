@@ -1,8 +1,11 @@
 // Business Logic
-function Pizza() {
+function Pizza(size) {
+  this.size = size;
 }
 
-var newPizza = new Pizza();
+var pSize = 10;
+
+var newPizza = new Pizza(pSize);
 
 console.log(Pizza);
 
