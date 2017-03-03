@@ -35,8 +35,8 @@ Pizza.prototype.getToppingsCost = function() {
 }
 
 //Order
-function Order(pizza) {
-  this.pizza = pizza;
+function Order(pizzas) {
+  this.pizzas = pizzas;
   this.cost = 0;
 }
 
@@ -46,10 +46,13 @@ Order.prototype.calculateCost = function() {
 
 var pSize = 10;
 var pToppings = ["extra cheese","pepperoni"];
+var pizzas = [];
 
 var newPizza = new Pizza(pSize, pToppings);
 newPizza.calculateCost();
-var newOrder = new Order(newPizza);
+pizzas.push(newPizza);
+
+var newOrder = new Order(pizzas);
 
 // User Interface Logic
 $(document).ready(function() {
