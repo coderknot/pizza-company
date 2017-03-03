@@ -40,10 +40,15 @@ function Order(pizza) {
   this.cost = 0;
 }
 
+Order.prototype.calculateCost = function() {
+  this.cost = this.pizza.cost;
+}
+
 var pSize = 10;
 var pToppings = ["extra cheese","pepperoni"];
 
 var newPizza = new Pizza(pSize, pToppings);
+newPizza.calculateCost();
 var newOrder = new Order(newPizza);
 
 // User Interface Logic
