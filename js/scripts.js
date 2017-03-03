@@ -8,7 +8,7 @@ function Pizza(size, toppings) {
 Pizza.prototype.calculateCost = function() {
   var baseCost = 8;
 
-  this.cost = baseCost + this.getSizeCost();
+  this.cost = baseCost + this.getSizeCost() + this.getToppingsCost();
 }
 
 Pizza.prototype.getSizeCost = function() {
@@ -22,6 +22,14 @@ Pizza.prototype.getSizeCost = function() {
     return 6;
   } else if(this.size === 16) {
     return 8;
+  }
+}
+
+Pizza.prototype.getToppingsCost = function() {
+  if(this.toppings.length === 1) {
+    return 0;
+  } else {
+    return this.toppings.length * 1.25;
   }
 }
 
