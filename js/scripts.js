@@ -43,6 +43,7 @@ function Order(name, pizzas, delivery) {
   this.pizzas = pizzas;
   this.totalCost = 0;
   this.isDelivery = delivery;
+  this.address = [];
 }
 
 Order.prototype.calculateCost = function() {
@@ -67,6 +68,11 @@ pizzas.push(newPizza2);
 
 var name = "Chris";
 var deliveryOption = true;
+var street = "401 Frantz Avnenue";
+var city = "Mullens";
+var state = "WV";
+var zip = "25882";
+var address = [street, city, state, zip];
 
 var newOrder = new Order(name, pizzas, deliveryOption);
 
