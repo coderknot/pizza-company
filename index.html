@@ -9,145 +9,172 @@
   </head>
   <body>
     <div class="container">
-      <form id="order-form">
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <h2 class="panel-title">Name</h2>
-          </div>
-          <div class="panel-body">
-            <div class="form-group">
-              <input type="text" class="form-control" id="name" placeholder="Enter name">
-            </div>
-          </div>
-        </div>
 
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <h2 class="panel-title">Pizza</h2>
-          </div>
-          <div class="panel-body">
-            <div id="pizzas">
-              <div class="pizza">
-                <div class="panel panel-info">
-                  <div class="panel-heading">
-                    <h2 class="panel-title">Size</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <h1>Order Form</h1>
+          <form id="order-form">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h2 class="panel-title">Name</h2>
+              </div>
+              <div class="panel-body">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="name" placeholder="Enter name">
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h2 class="panel-title">Pizza</h2>
+              </div>
+              <div class="panel-body">
+                <div id="pizzas">
+                  <div class="pizza">
+                    <div class="panel panel-info">
+                      <div class="panel-heading">
+                        <h2 class="panel-title">Size</h2>
+                      </div>
+                      <div class="panel-body">
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="size" value="8" checked>
+                            8" Personal
+                          </label>
+                        </div>
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="size" value="10">
+                            10" Small
+                          </label>
+                        </div>
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="size" value="12">
+                            12" Medium
+                          </label>
+                        </div>
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="size" value="14">
+                            14" Large
+                          </label>
+                        </div>
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="size" value="16">
+                            16" Extra-Large
+                          </label>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="panel-body">
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="size" value="8" checked>
-                        8"
-                      </label>
+                  <div class="panel panel-info">
+                    <div class="panel-heading">
+                      <h2 class="panel-title">Toppings</h2>
                     </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="size" value="10">
-                        10"
-                      </label>
+                    <div class="panel-body">
+                      <div class="form-group">
+                        <input type="checkbox" name="toppings" value="extra-cheese">Extra Cheese</input>
+                        <input type="checkbox" name="toppings" value="pepperoni">Pepperoni</input>
+                        <input type="checkbox" name="toppings" value="ham">Ham</input>
+                        <input type="checkbox" name="toppings" value="sausage">Sausage</input>
+                        <input type="checkbox" name="toppings" value="bacon">Bacon</input>
+                        <input type="checkbox" name="toppings" value="bell-pepper">Bell Pepper</input>
+                        <input type="checkbox" name="toppings" value="onion">Onion</input>
+                        <input type="checkbox" name="toppings" value="mushroom">Mushrooms</input>
+                        <input type="checkbox" name="toppings" value="green-olive">Green Olive</input>
+                        <input type="checkbox" name="toppings" value="black-olive">Black Olive</input>
+                        <input type="checkbox" name="toppings" value="pineapple">Pineapple</input>
+                      </div>
+                      <p>Note: $1.25 charge per topping, after the first topping</p>
                     </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="size" value="12">
-                        12"
-                      </label>
+                  </div>
+                </div>
+                <span class="btn btn-primary" id="add-pizza">Add pizza</span>
+              </div>
+            </div>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h2 class="panel-title">Options</h2>
+              </div>
+              <div class="panel-body">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="delivery" value="pick-up" id="pick-up" checked>
+                    Pick-up
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="delivery" value="delivery" id="delivery">
+                    Delivery
+                  </label>
+                </div>
+                <div id="address">
+                  <div class="panel panel-info">
+                    <div class="panel-heading">
+                      <h2 class="panel-title">Address</h2>
                     </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="size" value="14">
-                        14"
-                      </label>
-                    </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="size" value="16">
-                        16"
-                      </label>
+                    <div class="panel-body">
+                      <div class="form-group">
+                        <label for="street">Street</label>
+                        <input type="text" class="form-control" id="street" placeholder="Enter street">
+                      </div>
+                      <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="city" placeholder="Enter city">
+                      </div>
+                      <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" class="form-control" id="state" placeholder="Enter state">
+                      </div>
+                      <div class="form-group">
+                        <label for="zip">Zip Code</label>
+                        <input type="text" class="form-control" id="zip-code" placeholder="Enter zip code">
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-
-              <div class="panel panel-info">
-                <div class="panel-heading">
-                  <h2 class="panel-title">Toppings</h2>
-                </div>
-                <div class="panel-body">
-                  <div class="form-group">
-                    <input type="checkbox" name="toppings" value="extra-cheese">Extra Cheese</input>
-                    <input type="checkbox" name="toppings" value="pepperoni">Pepperoni</input>
-                    <input type="checkbox" name="toppings" value="ham">Ham</input>
-                    <input type="checkbox" name="toppings" value="sausage">Sausage</input>
-                    <input type="checkbox" name="toppings" value="bacon">Bacon</input>
-                    <input type="checkbox" name="toppings" value="bell-pepper">Bell Pepper</input>
-                    <input type="checkbox" name="toppings" value="onion">Onion</input>
-                    <input type="checkbox" name="toppings" value="mushroom">Mushrooms</input>
-                    <input type="checkbox" name="toppings" value="green-olive">Green Olive</input>
-                    <input type="checkbox" name="toppings" value="black-olive">Black Olive</input>
-                    <input type="checkbox" name="toppings" value="pineapple">Pineapple</input>
-                  </div>
-                </div>
+            </div>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h2 class="panel-title">Confirmation</h2>
               </div>
-
-            </div>
-            <span class="btn btn-primary" id="add-pizza">Add pizza</span>
-          </div>
-        </div>
-
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <h2 class="panel-title">Options</h2>
-          </div>
-          <div class="panel-body">
-            <div class="radio">
-              <label>
-                <input type="radio" name="delivery" value="pick-up" id="pick-up" checked>
-                Pick-up
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="delivery" value="delivery" id="delivery">
-                Delivery
-              </label>
-            </div>
-            <div id="address">
-              <div class="panel panel-info">
-                <div class="panel-heading">
-                  <h2 class="panel-title">Address</h2>
-                </div>
-                <div class="panel-body">
-                  <div class="form-group">
-                    <label for="street">Street</label>
-                    <input type="text" class="form-control" id="street" placeholder="Enter street">
-                  </div>
-                  <div class="form-group">
-                    <label for="city">Street</label>
-                    <input type="text" class="form-control" id="city" placeholder="Enter city">
-                  </div>
-                  <div class="form-group">
-                    <label for="state">State</label>
-                    <input type="text" class="form-control" id="state" placeholder="Enter state">
-                  </div>
-                  <div class="form-group">
-                    <label for="zip">Zip Code</label>
-                    <input type="text" class="form-control" id="zip-code" placeholder="Enter zip code">
-                  </div>
-                </div>
+              <div class="panel-body">
+                 <button type="submit" class="btn">Place Order</button>
               </div>
             </div>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <div id="order-confirmation">
+            <h1>Order Confirmation</h1>
+            <div class="well">
+              <h2>Order Summary</h2>
+
+              <p>Customer Name: <span id="order-name"></span></p>
+
+              <p>Order Type: <span id="order-delivery"></span></p>
+              <div id="order-address">
+                <p>Address -</p>
+                <p>Street: <span id="order-street"></span></p>
+                <p>City: <span id="order-city"></span></p>
+                <p>State: <span id="order-state"></span></p>
+                <p>Zip Code: <span id="order-zip-code"></span></p>
+              </div>
+
+              <p>Pizza -</p>
+              <div id="order-pizzas">
+              </div>
+
+              <p>Total Cost: $<span id="order-total-cost"></span></p>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <h2 class="panel-title">Confirmation</h2>
-          </div>
-          <div class="panel-body">
-             <button type="submit" class="btn">Place Order</button>
-          </div>
-        </div>
-
-      </form>
     </div>
   </body>
 </html>

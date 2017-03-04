@@ -1,3 +1,11 @@
 #address {
   display: none;
 }
+
+#order-confirmation {
+  display: none;
+}
+
+#order-address {
+  display: none;
+}

@@ -117,9 +117,62 @@ function addFields() {
           '<input type="checkbox" name="toppings" value="black-olive">Black Olive</input>' +
           '<input type="checkbox" name="toppings" value="pineapple">Pineapple</input>' +
         '</div>' +
+        '<p>Note: $1.25 charge per topping, after the first topping</p>' +
       '</div>' +
     '</div>' +
   '</div>');
+}
+
+function showOrder(order) {
+  $("#order-name").text(order.name);
+
+  if(order.isDelivery === true) {
+    $("#order-delivery").text("Delivery");
+
+    $("#order-street").text(order.address[0]);
+    $("#order-city").text(order.address[1]);
+    $("#order-state").text(order.address[2]);
+    $("#order-zip-code").text(order.address[3]);
+
+    $("#order-address").show();
+  } else {
+    $("#order-delivery").text("Pick-Up");
+  }
+
+  var pizzasString = "";
+
+  for(var i = 0; i < order.pizzas.length; i++) {
+    var size = "";
+
+    if(order.pizzas[i].size === 8) {
+      size = '8" Personal';
+    } else if (order.pizzas[i].size === 10) {
+      size = '10" Small';
+    } else if (order.pizzas[i].size === 12) {
+      size = '12" Medium';
+    } else if (order.pizzas[i].size === 14) {
+      size = '14" Large';
+    } else if (order.pizzas[i].size === 16) {
+      size = '16 Extra-Large';
+    }
+
+    var toppingsString = "<ul>";
+
+    for(var j = 0; j < order.pizzas[i].toppings.length; j++) {
+      toppingsString += "<li>" + order.pizzas[i].toppings[j] + "</li>";
+      console.log(toppingsString);
+    }
+
+    toppingsString += "</ul>";
+
+    pizzasString += "<p>Size: " + size + "</p>" +
+      "<p>Toppings: </p>" + toppingsString +
+      "<p>Cost: $" + order.pizzas[i].cost + "</p>";
+  }
+
+  $("#order-pizzas").html(pizzasString);
+  $("#order-total-cost").text(order.totalCost);
+  $("#order-confirmation").show();
 }
 
 // User Interface Logic
@@ -136,25 +189,11 @@ $(document).ready(function() {
   $("#pick-up").click(function() {
     $("#address").hide();
   });
-  
+
   $("form#order-form").submit(function(event) {
     event.preventDefault();
 
     var inputtedName = $("#name").val();
-
-    var inputtedDelivery = false;
-    var inputtedAddress = [];
-    var inputtedDeliveryOption = $("input:radio[name=delivery]:checked").val();
-    if(inputtedDeliveryOption === "delivery") {
-      inputtedDelivery = true;
-
-      var inputtedStreet = $("input#street").val();
-      var inputtedCity = $("input#city").val();
-      var inputtedState = $("input#state").val();
-      var inputtedZipCode = $("input#zip-code").val();
-
-      inputtedAddress.push(inputtedStreet, inputtedCity, inputtedState, inputtedZipCode);
-    }
 
     var inputtedPizzas = [];
 
@@ -172,12 +211,28 @@ $(document).ready(function() {
       inputtedPizzas.push(newPizza);
     });
 
+    var inputtedDelivery = false;
+    var inputtedAddress = [];
+    var inputtedDeliveryOption = $("input:radio[name=delivery]:checked").val();
+    if(inputtedDeliveryOption === "delivery") {
+      inputtedDelivery = true;
+
+      var inputtedStreet = $("input#street").val();
+      var inputtedCity = $("input#city").val();
+      var inputtedState = $("input#state").val();
+      var inputtedZipCode = $("input#zip-code").val();
+
+      inputtedAddress.push(inputtedStreet, inputtedCity, inputtedState, inputtedZipCode);
+    }
+
     var newOrder = new Order(inputtedName, inputtedPizzas, inputtedDelivery);
     newOrder.calculateCost();
-    newOrder.setAddress(inputtedAddress);
-    console.log(newOrder);
-    console.log(newOrder.pizzas[0]);
-    console.log(newOrder.pizzas[1]);
+
+    if(inputtedAddress.length > 0) {
+      newOrder.setAddress(inputtedAddress);
+    }
+
+    showOrder(newOrder);
   });
 
 });
