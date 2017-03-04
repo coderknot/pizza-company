@@ -60,7 +60,7 @@ Order.prototype.setAddress = function(address) {
 }
 
 // Other
-function addFields() {
+function addFields(pizzaNumber) {
   $("#pizzas").append('<div class="pizza">' +
     '<div class="panel panel-info">' +
       '<div class="panel-heading">' +
@@ -69,31 +69,31 @@ function addFields() {
       '<div class="panel-body">' +
         '<div class="radio">' +
           '<label>' +
-            '<input type="radio" name="size" value="8" checked>' +
+            '<input type="radio" name="size' + pizzaNumber + '" value="8" checked>' +
             '8"' +
           '</label>' +
         '</div>' +
         '<div class="radio">' +
           '<label>' +
-            '<input type="radio" name="size" value="10">' +
+            '<input type="radio" name="size' + pizzaNumber + '" value="10">' +
             '10"' +
           '</label>' +
         '</div>' +
         '<div class="radio">' +
           '<label>' +
-            '<input type="radio" name="size" value="12">' +
+            '<input type="radio" name="size' + pizzaNumber + '" value="12">' +
             '12"' +
           '</label>' +
         '</div>' +
         '<div class="radio">' +
           '<label>' +
-            '<input type="radio" name="size" value="14">' +
+            '<input type="radio" name="size' + pizzaNumber + '" value="14">' +
             '14"' +
           '</label>' +
         '</div>' +
         '<div class="radio">' +
           '<label>' +
-            '<input type="radio" name="size" value="16">' +
+            '<input type="radio" name="size' + pizzaNumber + '" value="16">' +
             '16"' +
           '</label>' +
         '</div>' +
@@ -105,17 +105,17 @@ function addFields() {
       '</div>' +
       '<div class="panel-body">' +
         '<div class="form-group">' +
-          '<input type="checkbox" name="toppings" value="extra-cheese">Extra Cheese</input>' +
-          '<input type="checkbox" name="toppings" value="pepperoni">Pepperoni</input>' +
-          '<input type="checkbox" name="toppings" value="ham">Ham</input>' +
-          '<input type="checkbox" name="toppings" value="sausage">Sausage</input>' +
-          '<input type="checkbox" name="toppings" value="bacon">Bacon</input>' +
-          '<input type="checkbox" name="toppings" value="bell-pepper">Bell Pepper</input>' +
-          '<input type="checkbox" name="toppings" value="onion">Onion</input>' +
-          '<input type="checkbox" name="toppings" value="mushroom">Mushrooms</input>' +
-          '<input type="checkbox" name="toppings" value="green-olive">Green Olive</input>' +
-          '<input type="checkbox" name="toppings" value="black-olive">Black Olive</input>' +
-          '<input type="checkbox" name="toppings" value="pineapple">Pineapple</input>' +
+          '<input type="checkbox" name="toppings' + pizzaNumber + '" value="extra-cheese">Extra Cheese</input>' +
+          '<input type="checkbox" name="toppings' + pizzaNumber + '" value="pepperoni">Pepperoni</input>' +
+          '<input type="checkbox" name="toppings' + pizzaNumber + '" value="ham">Ham</input>' +
+          '<input type="checkbox" name="toppings' + pizzaNumber + '" value="sausage">Sausage</input>' +
+          '<input type="checkbox" name="toppings' + pizzaNumber + '" value="bacon">Bacon</input>' +
+          '<input type="checkbox" name="toppings' + pizzaNumber + '" value="bell-pepper">Bell Pepper</input>' +
+          '<input type="checkbox" name="toppings' + pizzaNumber + '" value="onion">Onion</input>' +
+          '<input type="checkbox" name="toppings' + pizzaNumber + '" value="mushroom">Mushrooms</input>' +
+          '<input type="checkbox" name="toppings' + pizzaNumber + '" value="green-olive">Green Olive</input>' +
+          '<input type="checkbox" name="toppings' + pizzaNumber + '" value="black-olive">Black Olive</input>' +
+          '<input type="checkbox" name="toppings' + pizzaNumber + '" value="pineapple">Pineapple</input>' +
         '</div>' +
         '<p>Note: $1.25 charge per topping, after the first topping</p>' +
       '</div>' +
@@ -178,8 +178,11 @@ function showOrder(order) {
 // User Interface Logic
 $(document).ready(function() {
 
+  var pizzaNumber = 1;
+
   $("#add-pizza").click(function() {
-    addFields();
+    pizzaNumber++;
+    addFields(pizzaNumber);
   });
 
   $("#delivery").click(function() {
@@ -201,7 +204,8 @@ $(document).ready(function() {
       var inputtedSize = parseInt($("input:radio[name=size]:checked").val());
       var inputtedToppings = [];
 
-      $("input:checkbox[name=toppings]:checked").each(function(){
+      var targetString = "input:checkbox[name=toppings]:checked";
+      $(targetString).each(function(){
         var topping = $(this).val();
         inputtedToppings.push(topping);
       });
@@ -232,6 +236,7 @@ $(document).ready(function() {
       newOrder.setAddress(inputtedAddress);
     }
 
+    console.log(newOrder);
     showOrder(newOrder);
   });
 
