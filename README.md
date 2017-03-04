@@ -5,7 +5,7 @@
 #### Author: John Carr
 
 ## Description
-A web application that allows a user to enter their name and select the size and toppings of a pizza. Addtional pizzas may also be placed on the order by clicking the Add Pizza button. An option for delivery allows the user to enter an address when selected. Once the user submits the order, the total cost is displayed.
+A web application that allows a user to enter their name and select the size and toppings of a pizza. Additional pizzas may also be placed on the order by clicking the Add Pizza button. An option for delivery allows the user to enter an address when selected. Once the user submits the order, the total cost is displayed.
 
 ## Setup/Installation Instructions
 
@@ -37,7 +37,7 @@ No known bugs.
 Questions? Concerns? Suggestions?
 
 Reach out to me via github:
-<http://github.com/coderknot
+<http://github.com/coderknot>
 
 ## Technologies Used
 * _HTML_
@@ -45,9 +45,6 @@ Reach out to me via github:
 * _Bootstrap_
 * _JavaScript_
 * _JQuery_
-
-## GitHub Pages
-[Pizza Company](https://coderknot.github.io/pizza-company)
 
 ## License
 
